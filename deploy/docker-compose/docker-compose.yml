@@ -1,0 +1,7 @@
+version: "2.1"
+services:
+
+  proxy:
+    image: nginx
+    ports:
+      - 9000:80
