@@ -1,27 +1,13 @@
 package com.crossdorpoelem.site.operations
 
+import com.crossdorpoelem.site.AbstractSpec
 import com.crossdorpoelem.site.SiteTest
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.setup.MockMvcBuilders
-import org.springframework.web.context.WebApplicationContext
-import spock.lang.Specification
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 
 @SiteTest
-class HealthSpec extends Specification {
-
-    @Autowired
-    private WebApplicationContext context
-
-    protected MockMvc mvc
-
-    void setup() {
-        mvc = MockMvcBuilders.webAppContextSetup(context)
-                .build()
-    }
+class HealthSpec extends AbstractSpec {
 
     def "As an unauthenticated user, I want to retrieve basic health info from the actuator endpoint"() {
         given: "the /health actuator endpoint"

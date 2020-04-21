@@ -14,6 +14,15 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.crossdorpoelem</groupId>
+            <artifactId>site-infrastructure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.crossdorpoelem</groupId>
+            <artifactId>site-frontend</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
@@ -42,5 +51,14 @@
             </exclusions>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
