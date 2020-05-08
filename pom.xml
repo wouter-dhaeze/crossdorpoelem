@@ -21,6 +21,8 @@
 		<module>site-frontend</module>
 		<module>site-main</module>
 		<module>site-infrastructure</module>
+        <module>cdo-vocabulary</module>
+		<module>cdo-application</module>
 	</modules>
 
 	<properties>

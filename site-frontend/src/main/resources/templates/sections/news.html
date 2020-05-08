@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+    <body>
+
+    <section th:fragment="news" class="ftco-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-2">
+                <div class="col-md-8 text-center heading-section ftco-animate">
+                    <h2 class="mb-4"><span>Nieuwste</span> nieuws</h2>
+                    <p>Lees hieronder onze laatste berichten.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 ftco-animate">
+                    <div class="blog-entry">
+                        <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url('images/corona.jpg');">
+                            <div class="meta-date text-center p-2">
+                                <span class="day">20</span>
+                                <span class="mos">Maart</span>
+                                <span class="yr">2020</span>
+                            </div>
+                        </a>
+                        <div class="text bg-white p-4">
+                            <h3 class="heading"><a href="#">Crossdorp Oelem</a></h3>
+                            <p>Crossdorp Oelem editie 5 wordt wegen de gekende Coronacrisis uitgesteld naar 2021.
+                                We hebben besloten om niet meer op zoek te gaan naar een datum in 2020,
+                                gezien de nog vele ongekende factoren.
+                            </p>
+                            <div class="d-flex align-items-center mt-4">
+                                <p class="mb-0"><a href="#" class="btn btn-secondary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                <p class="ml-auto mb-0">
+                                    <a href="#" class="mr-2" th:text="${news}">TEST</a>
+                                    <a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 ftco-animate">
+                    <div class="blog-entry">
+                        <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url('images/challenge.jpg');">
+                            <div class="meta-date text-center p-2">
+                                <span class="day">11</span>
+                                <span class="mos">april</span>
+                                <span class="yr">2020</span>
+                            </div>
+                        </a>
+                        <div class="text bg-white p-4">
+                            <h3 class="heading"><a href="#">Winnaars Crossdorp Challenge</a></h3>
+                            <p>De winnaars van onze Crossdorp Challenge van 11 april zijn: Sharon Reyserhove, Marijke Mouton,
+                            Jens Paes, Goran Vanneste, Wendy Blomme, Bart Hurtecant, Frieke Sypré, Piet de Rycke + kroost.</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <p class="mb-0"><a href="#" class="btn btn-secondary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                <p class="ml-auto mb-0">
+                                    <a href="#" class="mr-2">Wouter</a>
+                                    <a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </body>
+
+</html>

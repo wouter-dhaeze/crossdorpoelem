@@ -1,1 +1,36 @@
-index
+<!DOCTYPE html>
+<html lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/main}">
+  <head>
+    <title>Crossdorp Oelem - Thuis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  </head>
+  <body>
+
+  <div layout:fragment="content">
+
+	  <section th:replace="~{sections/home-slider :: slider}"></section>
+
+	  <section th:replace="~{sections/goal :: goal}"></section>
+
+	  <section th:replace="~{sections/offer :: offer}"></section>
+
+      <section th:replace="~{sections/news :: news}"></section>
+
+<!--      <section th:replace="~{sections/subscribe :: subscribe}"></section>-->
+
+      <!--<section th:replace="~{sections/challenge :: challenge}"></section>
+
+      <section th:replace="~{sections/organisation :: organisation}"></section>
+
+      <section th:replace="~{sections/sponsors :: sponsors}"></section>-->
+
+  </div>
+    
+  </body>
+</html>
