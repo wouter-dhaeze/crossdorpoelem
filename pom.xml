@@ -11,15 +11,15 @@
 	</parent>
 
 	<groupId>com.crossdorpoelem</groupId>
-	<artifactId>site</artifactId>
+	<artifactId>cdo-main</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>site</name>
-	<description>Crossdorp website</description>
+	<name>main</name>
+	<description>Crossdorp Oelem services</description>
 
 	<modules>
-		<module>site-frontend</module>
 		<module>site-main</module>
+		<module>site-frontend</module>
 		<module>site-infrastructure</module>
         <module>cdo-vocabulary</module>
 		<module>cdo-application</module>
@@ -37,13 +37,13 @@
 		<dependencies>
 			<dependency>
 				<groupId>com.crossdorpoelem</groupId>
-				<artifactId>site-frontend</artifactId>
+				<artifactId>cdo-site-frontend</artifactId>
 				<version>${project.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
 				<groupId>com.crossdorpoelem</groupId>
-				<artifactId>site-infrastructure</artifactId>
+				<artifactId>cdo-site-infrastructure</artifactId>
 				<version>${project.version}</version>
 				<type>jar</type>
 			</dependency>

@@ -3,23 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>site</artifactId>
+        <artifactId>cdo-main</artifactId>
         <groupId>com.crossdorpoelem</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>site-main</artifactId>
+    <artifactId>cdo-site</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>com.crossdorpoelem</groupId>
-            <artifactId>site-infrastructure</artifactId>
+            <artifactId>cdo-site-infrastructure</artifactId>
         </dependency>
         <dependency>
             <groupId>com.crossdorpoelem</groupId>
-            <artifactId>site-frontend</artifactId>
+            <artifactId>cdo-site-frontend</artifactId>
         </dependency>
 
         <dependency>
