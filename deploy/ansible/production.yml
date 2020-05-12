@@ -1,0 +1,4 @@
+all:
+  hosts:
+    crossdorpoelem.be:
+      ansible_host: 51.210.6.70

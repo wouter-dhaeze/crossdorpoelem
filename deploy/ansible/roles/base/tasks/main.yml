@@ -1,0 +1,4 @@
+---
+- include_tasks: firewall.yml
+- include_tasks: accounts.yml
+- include_tasks: security.yml

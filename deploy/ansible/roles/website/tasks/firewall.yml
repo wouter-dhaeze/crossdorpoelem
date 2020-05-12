@@ -1,0 +1,36 @@
+---
+- name: Allow HTTP access on port 80
+  ufw:
+    rule: allow
+    port: '80'
+    proto: tcp
+    direction: in
+
+- name: Allow HTTPS access on port 443
+  ufw:
+    rule: allow
+    port: '443'
+    proto: tcp
+    direction: in
+
+- name: Allow access to k3s admin port 6443
+  ufw:
+    rule: allow
+    port: '6443'
+    proto: tcp
+    direction: in
+
+- name: Allow dns queries
+  ufw:
+    rule: allow
+    port: '53'
+    proto: udp
+    direction: out
+
+- name: Allow https outbound access
+  ufw:
+    rule: allow
+    port: '443'
+    proto: tcp
+    direction: out
+

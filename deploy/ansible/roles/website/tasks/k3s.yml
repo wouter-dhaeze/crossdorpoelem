@@ -1,0 +1,17 @@
+---
+- name: Download k3sup installer
+  get_url:
+    url: https://get.k3sup.dev
+    dest: /tmp/k3sup-installer.sh
+    mode: '0500'
+
+- name: Install k3sup
+  shell: /tmp/k3sup-installer.sh
+
+- name: Remove the installer
+  file:
+    path: /tmp/k3sup-installer.sh
+    state: absent
+
+- name: Install k3s using k3sup
+  command: k3sup install --local --k3s-extra-args '--docker'
