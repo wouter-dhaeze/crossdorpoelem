@@ -26,20 +26,30 @@ jobs:
       - name: Build with Maven
         run: mvn -B verify
 
-#  package:
-#    runs-on: ubuntu-latest
-#    needs: qa
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: Set up JDK 1.8
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 1.8
-#      - name: Cache Maven packages
-#        uses: actions/cache@v1
-#        with:
-#          path: ~/.m2
-#          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-#          restore-keys: ${{ runner.os }}-m2
-#      - name: Build with Maven
-#        run: mvn -B package -DskipTests
+  docker-package-and-publish:
+    runs-on: ubuntu-latest
+    needs: qa
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Cache Maven packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Build with Maven
+        run: mvn -B package -DskipTests
+      - name: Set docker image tag
+        run: echo ::set-env name=IMAGE_TAG::${GITHUB_REF##*/}
+      - name: Build docker image
+        run: |
+          cp site-main/target/cdo-site-*.jar deploy/docker/cdo-site.jar
+          docker build -t wouterdhaeze/cdo-site:${IMAGE_TAG} deploy/docker
+      - name: Push docker image
+        run: |
+          docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker push wouterdhaeze/cdo-site:${IMAGE_TAG}
