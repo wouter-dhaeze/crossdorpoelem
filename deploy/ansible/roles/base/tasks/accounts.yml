@@ -1,0 +1,49 @@
+---
+- name: Add admin group
+  group:
+    name: admin
+
+- name: Allow sudo privileges for all admins
+  copy:
+    src: sudoers
+    dest: /etc/sudoers.d/admin
+    owner: root
+    group: root
+    mode: '0440'
+
+- name: Create user accounts
+  user:
+    name: "{{ item | basename }}"
+    password: '!'
+    group: admin
+    groups: admin
+    append: true
+    shell: /bin/bash
+    skeleton: /etc/skel
+  with_fileglob:
+    - ssh-keys/*
+
+- name: Disable password authentication
+  user:
+    name: "{{ item | basename }}"
+    password_lock: true
+  with_fileglob:
+    - ssh-keys/*
+
+- name: Add ssh keys
+  authorized_key:
+    user: "{{ item | basename }}"
+    key: "{{ lookup('file', item) }}"
+    state: present
+  with_fileglob:
+    - ssh-keys/*
+
+- name: Disable password authentication for root user
+  user:
+    name: root
+    password_lock: true
+
+- name: Remove ssh key from root user
+  file:
+    path: /root/.ssh/authorized_keys
+    state: absent

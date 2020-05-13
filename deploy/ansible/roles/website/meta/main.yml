@@ -1,0 +1,18 @@
+galaxy_info:
+  role_name: crossdorpoelem-website
+  author: Wouter Dhaeze
+  description: Setup VM with docker and k3s to host the crossdorp web app
+  company: VZW Feles
+
+  min_ansible_version: 2.9
+
+  platforms:
+   - name: Ubuntu
+     versions:
+     - all
+
+  galaxy_tags: []
+
+dependencies:
+  - role: base
+  - role: geerlingguy.docker

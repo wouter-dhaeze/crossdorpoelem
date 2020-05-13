@@ -1,0 +1,11 @@
+spring:
+  # Templates reloading during development
+  thymeleaf:
+    prefix: file:site-frontend/src/main/resources/templates/
+    cache: false
+
+  # Static resources reloading during development
+  resources:
+    static-locations: file:site-frontend/src/main/resources/static/
+    cache:
+      period: 0
