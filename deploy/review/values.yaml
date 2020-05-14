@@ -2,6 +2,7 @@ imagePullSecret: pull-secret
 
 image:
   tag: master
+  pullPolicy: Always
 
 service:
   type: ClusterIP
