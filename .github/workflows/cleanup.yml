@@ -14,7 +14,9 @@ jobs:
       - name: Delete docker tag
         run: |
           chmod +x .github/scripts/delete-tag.sh
-          .github/scripts/delete-tag.sh $IMAGE_TAG
+          .github/scripts/delete-tag.sh
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          GIT_USER: ${{ secrets.GIT_USER }}
+          GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
