@@ -14,7 +14,7 @@ The ansible playbook(s) provision a host with the necessary tool to host the Cro
 ### Provision VM
 ```
 cd deploy/ansible
-ansible-playbook website.yml -v --extra-vars '{"user": "root"}'-i production.yml
+ansible-playbook website.yml -v --extra-vars '{"user": "root"}' -i production.yml
 ```
 
 ### k3s

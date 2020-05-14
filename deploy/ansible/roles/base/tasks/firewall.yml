@@ -6,3 +6,8 @@
     proto: tcp
     direction: in
 
+- name: Allow all outgoing traffic
+  ufw:
+    direction: outgoing
+    default: allow
+

@@ -1,0 +1,15 @@
+imagePullSecrets: regcred
+
+image:
+  tag: master
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  hosts:
+    - host: www.51.210.6.70.xip.io
+      paths:
+        - /
