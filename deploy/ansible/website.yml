@@ -3,16 +3,7 @@
   remote_user: "{{ user }}"
   become: true
   become_method: sudo
-  pre_tasks:
-    - name: Allow all outgoing traffic during install
-      ufw:
-        direction: outgoing
-        default: allow
   post_tasks:
-    - name: Deny outgoing traffic by default after install
-      ufw:
-        direction: outgoing
-        default: deny
     - name: Start firewall
       service:
         name: ufw

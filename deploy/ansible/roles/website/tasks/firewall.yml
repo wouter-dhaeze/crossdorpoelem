@@ -20,17 +20,3 @@
     proto: tcp
     direction: in
 
-- name: Allow dns queries
-  ufw:
-    rule: allow
-    port: '53'
-    proto: udp
-    direction: out
-
-- name: Allow https outbound access
-  ufw:
-    rule: allow
-    port: '443'
-    proto: tcp
-    direction: out
-

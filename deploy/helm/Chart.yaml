@@ -1,0 +1,5 @@
+apiVersion: v2
+name: crossdorp-site
+description: Helm3 chart to deploy the Crossdorp Oelem web site
+type: application
+version: 1.0.0

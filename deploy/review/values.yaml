@@ -1,0 +1,16 @@
+imagePullSecret: pull-secret
+
+image:
+  tag: master
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  hosts:
+    - host: www.51.210.6.70.xip.io
+      paths:
+        - /
