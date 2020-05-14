@@ -1,5 +1,7 @@
 replicaCount: 1
 
+commit: master
+
 image:
   repository: wouterdhaeze/cdo-site
   pullPolicy: IfNotPresent

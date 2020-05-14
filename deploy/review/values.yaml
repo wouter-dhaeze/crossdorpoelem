@@ -1,4 +1,4 @@
-imagePullSecrets: regcred
+imagePullSecret: pull-secret
 
 image:
   tag: master

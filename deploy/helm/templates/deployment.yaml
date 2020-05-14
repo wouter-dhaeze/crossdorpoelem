@@ -13,15 +13,16 @@ spec:
       {{- include "crossdorp-site.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-    {{- with .Values.podAnnotations }}
       annotations:
+        commit: {{ .Values.commit }}
+    {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
         {{- include "crossdorp-site.selectorLabels" . | nindent 8 }}
     spec:
-      imagePullSecrets:  {{ .Values.imagePullSecret }}
-        - name:
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecret }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
