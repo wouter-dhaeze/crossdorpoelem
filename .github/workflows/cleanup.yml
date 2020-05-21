@@ -1,8 +1,11 @@
 name: Cleanup
 
 on:
-  pull_request:
-    types: [closed]
+#  pull_request:
+#    types: [closed]
+  push:
+    branches:
+      - 'cdo-8'
 
 jobs:
   remove-docker-image:
@@ -10,11 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set docker image tag
-        run: echo ::set-env name=IMAGE_TAG::${GITHUB_REF##*/}
+#        run: echo ::set-env name=IMAGE_TAG::${GITHUB_REF##*/}
+        run: |
+          echo ::set-env name=IMAGE_TAG::${{ github.head_ref }}
+          echo "IMAGE_TAG: $IMAGE_TAG"
       - name: Delete docker tag
         run: |
+          echo "Removing image tag '${{ github.head_ref }}'"
           chmod +x .github/scripts/delete-tag.sh
-          .github/scripts/delete-tag.sh
+          .github/scripts/delete-tag.sh ${{ github.head_ref }}
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
