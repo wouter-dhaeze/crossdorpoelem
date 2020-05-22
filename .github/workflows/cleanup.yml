@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-     - name: Delete docker tag
+      - name: Delete docker tag
         run: |
           echo "Removing image tag '${{ github.head_ref }}'"
           chmod +x .github/scripts/delete-tag.sh
