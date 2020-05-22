@@ -2,10 +2,12 @@
 
 set -e
 
+TAG=$1
+
 TOKEN=$(curl -s -H "Content-Type: application/json" -X POST -d '{"username": "'${DOCKER_USER}'", "password": "'${DOCKER_PASSWORD}'"}' https://hub.docker.com/v2/users/login/ | jq -r .token)
 
 function docker_tag_exists() {
-    EXISTS=$(curl -s -H "Authorization: JWT ${TOKEN}" https://hub.docker.com/v2/repositories/wouterdhaeze/cdo-site/tags/ | jq -r "[.results | .[]? | .name == \"$1\"] | any")
+    EXISTS=$(curl -s -H "Authorization: JWT ${TOKEN}" https://hub.docker.com/v2/repositories/wouterdhaeze/cdo-site/tags/ | jq -r "[.results | .[]? | .name == \"$TAG\"] | any")
     test $EXISTS = true
 }
 

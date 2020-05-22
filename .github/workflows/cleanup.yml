@@ -9,11 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set docker image tag
-        run: |
-          echo ::set-env name=IMAGE_TAG::${{ github.head_ref }}
-          echo "IMAGE_TAG: $IMAGE_TAG"
-      - name: Delete docker tag
+     - name: Delete docker tag
         run: |
           echo "Removing image tag '${{ github.head_ref }}'"
           chmod +x .github/scripts/delete-tag.sh
