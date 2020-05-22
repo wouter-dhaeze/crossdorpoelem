@@ -13,7 +13,7 @@ jobs:
         run: |
           echo "Removing image tag '${{ github.head_ref }}'"
           chmod +x .github/scripts/delete-tag.sh
-          .github/scripts/delete-tag.sh ${{ github.head_ref }}
+          .github/scripts/delete-tag.sh "${{ github.head_ref }}"
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
